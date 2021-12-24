@@ -1,0 +1,14 @@
+FROM ubuntu:18.04
+RUN apt update
+RUN apt install nginx -y 
+RUN apt install python3.8 -y
+WORKDIR /var/www/html
+###you can use curl to download the link from github or you can clone the repo and use COPY to add omnifood to the /var/www/html as shown in the commented(#) layer.(#COPY omnifood /var/www/html/omnifood) below
+RUN apt install curl -y
+RUN curl -o /var/www/html/omnifood https://github.com/Y16v/omnifood
+RUN apt remove curl -y
+#COPY omnifood /var/www/html/omnifood 
+RUN chmod 777 /var/www/html/omnifood 
+EXPOSE 80
+ENTRYPOINT ["nginx"]
+CMD ["-g", "daemon off;"]
