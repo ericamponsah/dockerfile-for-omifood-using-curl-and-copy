@@ -2,10 +2,9 @@ FROM ubuntu:18.04
 RUN apt update
 RUN apt install nginx -y 
 RUN apt install python3.8 -y
-WORKDIR /var/www/html/omnifood
-ADD https://github.com/Y16v/omnifood /var/www/html/omnifood/
-#COPY omnifood /var/www/html/omnifood 
-RUN chmod 777 /var/www/html/omnifood/ 
+WORKDIR /var/www/html/
+ADD https://aaregistry.org/wp-content/uploads/2021/10/golden-stool-300x195.jpg /var/www/html/golden-stool-300x195.jpg
+RUN chmod 777 /var/www/html/golden-stool-300x195.jpg
 EXPOSE 80
 ENTRYPOINT ["nginx"]
 CMD ["-g", "daemon off;"]
