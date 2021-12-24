@@ -1,0 +1,1 @@
+# dockerfile-for-omifood-using-curl-and-copy
